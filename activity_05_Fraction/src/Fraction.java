@@ -13,53 +13,60 @@ public class Fraction {
     // class variable
     private static final int DEFAULT_VALUE = 1;
 
-    // TODO: implement the parameter-less constructor
+    // TODOd: implement the parameter-less constructor
     Fraction() {
-
+        numerator = denominator = DEFAULT_VALUE;
     }
 
-    // TODO: implement the parametrized constructor with one parameter
+    // TODOd: implement the parametrized constructor with one parameter
     Fraction(int numerator) {
-
+        this.numerator = numerator;
+        denominator = DEFAULT_VALUE;
     }
 
-    // TODO: implement the parametrized constructor with two parameters
+    // TODOd: implement the parametrized constructor with two parameters
     Fraction(int numerator, int denominator) {
-
+        this.numerator = numerator;
+        if (denominator == 0)
+            this.denominator = DEFAULT_VALUE;
+        else
+            this.denominator = denominator;
     }
 
-    // TODO: implement getNumerator
+    // TODOd: implement getNumerator
     int getNumerator() {
-        return DEFAULT_VALUE;
+        return numerator;
     }
 
-    // TODO: implement getDenominator
+    // TODOd: implement getDenominator
     int getDenominator() {
-        return DEFAULT_VALUE;
+        return denominator;
     }
 
-    // TODO: implement setNumerator
+    // TODOd: implement setNumerator
     void setNumerator(int numerator) {
-
+        this.numerator = numerator;
     }
 
-    // TODO: implement setDenominator (do not to allow having the denominator set to zero)
+    // TODOd: implement setDenominator (do not to allow having the denominator set to zero)
     void setDenominator(int denominator) {
-
+        if (denominator != 0)
+            this.denominator = denominator;
     }
 
-    // TODO: implement getValue
+    // TODOs: implement getValue
     double getValue() {
-        return DEFAULT_VALUE;
+        return (double) numerator / denominator;
     }
 
-    // TODO: correct the error in the code
+    // TODOd: correct the error in the code
     int gcd() {
         int a = Math.abs(this.numerator);
         int b = Math.abs(this.denominator);
         while (b != 0) {
+            int r = a % b;
             a = b;
-            b = a;
+            b = r;
         }
         return a;
     }
@@ -77,14 +84,14 @@ public class Fraction {
         }
     }
 
-    // TODO: implement isNegative
+    // TODOd: implement isNegative
     public boolean isNegative() {
-        return false;
+        return getValue() < 0;
     }
 
-    // TODO: implement isProper
+    // TODOd: implement isProper
     public boolean isProper() {
-        return false;
+        return Math.abs(numerator) < Math.abs(denominator);
     }
 
     // nothing to do here (code is given to you, enjoy)
