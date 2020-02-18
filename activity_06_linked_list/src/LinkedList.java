@@ -6,10 +6,24 @@ public class LinkedList {
         head = null;
     }
 
+    // add in front
     public void add(int data) {
         Node newNode = new Node(data);
         newNode.setNext(head);
         head = newNode;
+    }
+
+    // add tail
+    public void append(int data) {
+        Node newNode = new Node(data);
+        if (isEmpty())
+            head = newNode;
+        else {
+            Node current = head;
+            while (current.getNext() != null)
+                current = current.getNext();
+            current.setNext(newNode);
+        }
     }
 
     @Override
@@ -47,6 +61,57 @@ public class LinkedList {
             current = current.getNext();
         }
         return current.getData();
+    }
+
+    public void set(int index, int data) {
+        if (index < 0 || index >= size())
+            return;
+        int i = 0;
+        Node current = head;
+        while (i < index) {
+            i++;
+            current = current.getNext();
+        }
+        current.setData(data);
+    }
+
+    void insert(int index, int data) {
+        if (index < 0 || index >= size())
+            return;
+        if (index == 0)
+            add(data);
+        else {
+            Node newNode = new Node(data);
+            int i = 0;
+            Node current = head;
+            while (i < index - 1) {
+                i++;
+                current = current.getNext();
+            }
+            newNode.setNext(current.getNext());
+            current.setNext(newNode);
+        }
+    }
+
+    void remove(int index) {
+        if (index < 0 || index >= size())
+            return;
+        if (index == 0) {
+            Node temp = head;
+            head = head.getNext();
+            temp.setNext(null);
+        }
+        else {
+            int i = 0;
+            Node current = head;
+            while (i < index - 1) {
+                i++;
+                current = current.getNext();
+            }
+            Node temp = current.getNext();
+            current.setNext(current.getNext().getNext());
+            temp.setNext(null);
+        }
     }
 
 
