@@ -1,4 +1,4 @@
-public class StaticStackDriver {
+public class StackDriver {
 
     public static void main(String[] args) {
         DynamicStack st = new DynamicStack();
