@@ -45,14 +45,26 @@ public class CarWashSimulation {
         for (int i = 0; i < minutes; i++) {
             String padded = String.format("%03d" , i);
             System.out.print(padded + ". ");
-            System.out.println(queue);
-            // TODO: simulate that a new car arrived using CHANCE_NEW_CAR
+            System.out.print(queue);
+            if (car != null)
+                System.out.print(" being washed: " + car);
+            System.out.println();
+            // TODOd: simulate that a new car arrived using CHANCE_NEW_CAR
+            if (r.nextInt(100) + 1 <= CHANCE_NEW_CAR)
+                queue.push(getRandomCar());
 
+            // TODOd: if no cars is being washed, get the next car to be served from the queue
+            if (car == null && !queue.isEmpty()) {
+                car = queue.pop();
+                timer = r.nextInt(MAX_TIME_WASH - MIN_TIME_WASH + 1) + MIN_TIME_WASH;
+            }
 
-            // TODO: if no cars is being washed, get the next car to be served from the queue
-
-
-            // TODO: if a car is currently being served, decrease the timer and finish servicing the car if timer reaches 0
+            // TODOd: if a car is currently being served, decrease the timer and finish servicing the car if timer reaches 0
+            if (car != null) {
+                timer--;
+                if (timer == 0)
+                    car = null;
+            }
 
         }
         System.out.println("Simulation completed!");
