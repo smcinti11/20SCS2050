@@ -64,8 +64,7 @@ class Path {
 
     // TODO: returns a cloned path from the callee path object
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        super.clone(); // leave this line as the first one in this method
+    public Object clone() {
         return null;
     }
 
