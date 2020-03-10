@@ -23,7 +23,7 @@ public class KochSnowflakeFrame extends JFrame {
 
     public static void main(String[] args) {
         new KochSnowflakeFrame(300, 420, 3, 18, Color.BLACK);
-        //new KochSnowflakeFrame(20, 20, 3, 20, Color.BLACK);
+//        new KochSnowflakeFrame(20, 20, 3, 20, Color.BLACK);
     }
 
 }
