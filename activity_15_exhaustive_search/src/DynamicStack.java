@@ -1,34 +1,28 @@
-/*
- * CS 2050 - Computer Science II - Spring 2020
- * Instructor: Thyago Mota
- * Description: Activity 14 - Dynamic Stack
- */
+public class DynamicStack<T> {
 
-public class DynamicStack {
-
-    private Node top;
+    private Node<T> top;
 
     public DynamicStack() {
         top = null;
     }
 
-    public void push(String data) {
-        Node newNode = new Node(data);
+    public void push(T data) {
+        Node<T> newNode = new Node<>(data);
         newNode.setNext(top);
         top = newNode;
     }
 
-    public String pop() {
+    public T pop() {
         if (isEmpty())
             return null;
-        String data = top.getData();
-        Node temp = top;
+        T data = top.getData();
+        Node<T> temp = top;
         top = top.getNext();
         temp.setNext(null);
         return data;
     }
 
-    public String peek() {
+    public T peek() {
         if (isEmpty())
             return null;
         return top.getData();
@@ -36,7 +30,7 @@ public class DynamicStack {
 
     public int size() {
         int count = 0;
-        Node current = top;
+        Node<T> current = top;
         while (current != null) {
             count++;
             current = current.getNext();
@@ -52,7 +46,7 @@ public class DynamicStack {
     @Override
     public String toString() {
         String out = "(top)";
-        Node current = top;
+        Node<T> current = top;
         while (current != null) {
             out += " " + current.toString();
             current = current.getNext();

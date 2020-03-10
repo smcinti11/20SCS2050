@@ -1,42 +1,36 @@
-/*
- * CS 2050 - Computer Science II - Spring 2020
- * Instructor: Thyago Mota
- * Description: Activity 14 - Node class
- */
+public class Node<T> {
 
-public class Node {
-
-    private String  data;
-    private Node   next;
+    private T    data;
+    private Node next;
 
     public Node() {
         data = null;
         next = null;
     }
 
-    public Node(String data) {
+    public Node(T data) {
         this.data = data;
         next = null;
     }
 
-    public String getData() {
+    public T getData() {
         return data;
     }
 
-    public Node getNext() {
+    public Node<T> getNext() {
         return next;
     }
 
-    public void setData(String data) {
+    public void setData(T data) {
         this.data = data;
     }
 
-    public void setNext(Node next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
 
     @Override
     public String toString() {
-        return data;
+        return data + "";
     }
 }

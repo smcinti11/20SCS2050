@@ -1,34 +1,26 @@
-/*
- * CS 2050 - Computer Science II - Spring 2020
- * Instructor: Thyago Mota
- * Description: Activity 14 - Exhaustive Search
- */
-
-// Goal: to search for all of the combinations of letters with a given size
 public class ExhaustiveSearch {
 
-    static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     static void search(int n) {
-
-        // TODO: create a stack of String objects
-
-        // TODO: push all letters of the alphabet onto the stack
-
-
-        // TODO: loop until the stack is empty
-
-            // TODO: pop a String from the stack
-
-            // TODO: IF size of the String is “n”, print the String
-
-
-            // TODO: ELSE, push back all of the combinations of the String with each individual letters of the alphabet
-
-        
+        DynamicStack<String> stack = new DynamicStack<>();
+        for (int i = ALPHABET.length() - 1; i >= 0; i--) {
+            char c = ALPHABET.charAt(i);
+            stack.push(c + "");
+        }
+        while (!stack.isEmpty()) {
+            String str = stack.pop();
+            if (str.length() == n)
+                System.out.println(str);
+            else
+                for (int i = ALPHABET.length() - 1; i >= 0; i--) {
+                    char c = ALPHABET.charAt(i);
+                    stack.push(str + c);
+                }
+        }
     }
 
     public static void main(String[] args) {
-        search(3);
+        search(5);
     }
 }
