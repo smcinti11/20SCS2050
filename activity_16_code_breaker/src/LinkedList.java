@@ -122,6 +122,12 @@ public class LinkedList<T> {
 
     // TODO: returns true/false depending whether the list has the data element or not
     boolean contains(T data) {
+        Node<T> current = head;
+        while (current != null) {
+            if (current.getData().equals(data))
+                return true;
+            current = current.getNext();
+        }
         return false;
     }
 }
