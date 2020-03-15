@@ -120,11 +120,11 @@ public class LinkedList<T> {
         }
     }
 
-    // TODO: returns true/false depending whether the list has the data element or not
+    // TODOd: returns true/false depending whether the list has the data element or not
     boolean contains(T data) {
         Node<T> current = head;
         while (current != null) {
-            if (current.getData().equals(data))
+            if (current.getData().equals(data)) // method chaining...
                 return true;
             current = current.getNext();
         }

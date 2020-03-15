@@ -22,7 +22,7 @@ public class DynamicStack<T> {
         if (isEmpty())
             return null;
         T data = top.getData();
-        Node temp = top;
+        Node<T> temp = top;
         top = top.getNext();
         temp.setNext(null);
         return data;
