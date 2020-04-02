@@ -78,8 +78,8 @@ public class SortingObjectsSol {
         }
         in.close();
         System.out.println(students);
-        students = mergeSort(students);
-        System.out.println(students);
+        LinkedList<Student> studentsSorted = mergeSort(students);
+        System.out.println(studentsSorted);
     }
 }
 
