@@ -11,54 +11,26 @@ public class SortingObjects {
 
     private static final String NAMES_FILENAME = "names.txt";
 
+    // TODO: merge the two given lists returning a new list with the elements sorted
     public static LinkedList<Student> merge(LinkedList<Student> left, LinkedList<Student> right) {
-        int i = 0, j = 0;
-        LinkedList<Student> sorted = new LinkedList<>();
-        while (i < left.size() && j < left.size()) {
-            Student leftStudent  = left.get(i);
-            Student rightStudent = right.get(j);
-            if (leftStudent.compareTo(rightStudent) < 0) {
-                sorted.append(leftStudent);
-                i++;
-            }
-            else {
-                sorted.append(rightStudent);
-                j++;
-            }
-        }
-        while (i < left.size()) {
-            Student leftStudent  = left.get(i++);
-            sorted.append(leftStudent);
-        }
-        while (j < right.size()) {
-            Student rightStudent  = right.get(j++);
-            sorted.append(rightStudent);
-        }
-        left.clear();
-        right.clear();
-        return sorted;
+        return null;
     }
 
+    // TODO: implement merge sort using a linked list
     public static LinkedList<Student> mergeSort(LinkedList<Student> students) {
-        // base case
-        if (students.size() <= 1)
-            return students;
 
-        // divide
-        int middle = students.size() / 2;
-        LinkedList<Student> left = new LinkedList<>();
-        for (int i = 0; i < middle; i++)
-            left.append(students.get(i));
-        LinkedList<Student> right = new LinkedList<>();
-        for (int i = middle; i < students.size(); i++)
-            right.append(students.get(i));
-        students.clear();
-        left  = mergeSort(left);
-        right = mergeSort(right);
+        // TODO: implement the base case
 
-        // conquer (merge)
-        LinkedList<Student> sorted = merge(left, right);
-        return sorted;
+
+        // TODO: divide the students list into two lists: left and right
+
+
+
+        // TODO: recursively call mergeSort w/ left and right linked lists
+
+
+        // TODO: return the result of merging left and right linked lists
+        return null;
     }
 
     public static void main(String[] args) throws FileNotFoundException {
@@ -74,8 +46,8 @@ public class SortingObjects {
         }
         in.close();
         System.out.println(students);
-        students = mergeSort(students);
-        System.out.println(students);
+        LinkedList<Student> studentsSorted = mergeSort(students);
+        System.out.println(studentsSorted);
     }
 }
 
