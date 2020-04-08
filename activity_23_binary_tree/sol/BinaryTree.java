@@ -4,11 +4,11 @@
  * Description: Activity 23 - BinaryTree class
  */
 
-public class BinaryTreeSol<T extends Comparable<T>> {
+public class BinaryTree<T extends Comparable<T>> {
 
     private BinNode<T> root;
 
-    public BinaryTreeSol() {
+    public BinaryTree() {
         root = null;
     }
 

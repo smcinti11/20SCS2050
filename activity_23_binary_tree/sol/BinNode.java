@@ -5,17 +5,17 @@
  */
 
 // TODO: implement the BinNode<T> class
-public class BinNodeSol<T> {
+public class BinNode<T> {
 
     private T  data;
-    private BinNodeSol<T> left, right;
+    private BinNode<T> left, right;
 
-    public BinNodeSol() {
+    public BinNode() {
         data = null;
         left = right = null;
     }
 
-    public BinNodeSol(T data) {
+    public BinNode(T data) {
         this.data = data;
         left = right = null;
     }
@@ -24,11 +24,11 @@ public class BinNodeSol<T> {
         return data;
     }
 
-    public BinNodeSol<T> getLeft() {
+    public BinNode<T> getLeft() {
         return left;
     }
 
-    public BinNodeSol<T> getRight() {
+    public BinNode<T> getRight() {
         return right;
     }
 
@@ -36,11 +36,11 @@ public class BinNodeSol<T> {
         this.data = data;
     }
 
-    public void setLeft(BinNodeSol<T> left) {
+    public void setLeft(BinNode<T> left) {
         this.left = left;
     }
 
-    public void setRight(BinNodeSol<T> right) {
+    public void setRight(BinNode<T> right) {
         this.right = right;
     }
 
