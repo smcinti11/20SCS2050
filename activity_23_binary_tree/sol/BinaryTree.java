@@ -65,4 +65,21 @@ public class BinaryTree<T extends Comparable<T>> {
         }
         return str;
     }
+
+    // TODO: implement searchRecursively
+    private boolean searchRecursively(final BinNode<T> current, final T data) {
+        if (current == null)
+            return false;
+        else if (data.compareTo(current.getData()) == 0)
+            return true;
+        else if (data.compareTo(current.getData()) < 0)
+            return searchRecursively(current.getLeft(), data);
+        else
+            return searchRecursively(current.getRight(), data);
+    }
+
+    // TODO: boolean search
+    public boolean search(final T data) {
+        return searchRecursively(root, data);
+    }
 }

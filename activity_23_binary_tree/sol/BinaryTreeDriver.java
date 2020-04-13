@@ -18,5 +18,11 @@ public class BinaryTreeDriver {
         btree.add("Kristi");
         btree.add("Xavier");
         System.out.println(btree);
+
+        // TODO: search for a name
+        if (btree.search("Carlas"))
+            System.out.println("Found!");
+        else
+            System.out.println("Not found!");
     }
 }
