@@ -4,7 +4,9 @@
  * Description: Activity 27 - Hashtable class
  */
 
-public class Hashtable<K,V> {
+import java.util.Iterator;
+
+public class Hashtable<K,V> implements Iterable<V> {
 
     private static final int SIZE = 17;
     private HashNode<K, V> table[];
@@ -76,5 +78,52 @@ public class Hashtable<K,V> {
             }
         }
         return str;
+    }
+
+    // TODO: implement an iterator for the hashtable
+    @Override
+    public Iterator<V> iterator() {
+        return new Iterator<V>() {
+
+            int index = 0;
+            HashNode<K, V> current = table[index];
+
+            @Override
+            public boolean hasNext() {
+                while (true) {
+                    if (index == SIZE)
+                        break;
+                    if (current == null) {
+                        index++;
+                        if (index < SIZE)
+                            current = table[index];
+                    }
+                    else
+                        return true;
+                }
+                return false;
+            }
+
+            @Override
+            public V next() {
+                if (hasNext()) {
+                    V v = current.getValue();
+                    current = current.getNext();
+                    while (true) {
+                        if (index == SIZE)
+                            break;
+                        if (current == null) {
+                            index++;
+                            if (index < SIZE)
+                                current = table[index];
+                        }
+                        else
+                            break;
+                    }
+                    return v;
+                }
+                return null;
+            }
+        };
     }
 }

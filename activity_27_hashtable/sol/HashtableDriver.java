@@ -6,6 +6,7 @@
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class HashtableDriver {
@@ -25,6 +26,13 @@ public class HashtableDriver {
             ht.put(id, student);
         }
         in.close();
+
+        // print of the hashtable
         System.out.println(ht);
+
+        // using the hashtable's iterator
+        Iterator<Student> it = ht.iterator();
+        while (it.hasNext())
+            System.out.print(it.next() + " ");
     }
 }
