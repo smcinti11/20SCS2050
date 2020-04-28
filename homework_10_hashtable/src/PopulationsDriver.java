@@ -6,7 +6,7 @@
 
 public class PopulationsDriver {
 
-    private static final String FILE_NAME = "populations.csv";
+    private static final String FILE_NAME = "population.csv";
     private Hashtable<String, Integer> pops;
 
     public PopulationsDriver() {

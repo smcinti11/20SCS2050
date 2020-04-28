@@ -55,9 +55,11 @@ public class Hashtable<K,V> implements Iterable<V> {
         HashNode<K, V> current = table[index];
 
         // TODO: try to find a hash node with the same key and if found, return the hash node's value
-        while (current != null)
+        while (current != null) {
             if (current.getKey().equals(key))
                 return current.getValue();
+            current = current.getNext();
+        }
 
         // if not found, the method returns null
         return null;
